@@ -1,0 +1,5 @@
+.venv
+website_backend/settings_local.py
+db.sqlite3
+public
+.idea

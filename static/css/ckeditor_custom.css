@@ -1,0 +1,5 @@
+.ck-editor__editable {
+    width: auto !important;
+    max-width: 100%;
+    box-sizing: border-box;
+}
