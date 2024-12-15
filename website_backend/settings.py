@@ -151,39 +151,14 @@ USE_TZ = False
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-if PRODUCTION:
-    AWS_ACCESS_KEY_ID = 'AKIAWL5SMRGL24EQ3J6B'
-    AWS_SECRET_ACCESS_KEY = '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'
-    AWS_STORAGE_BUCKET_NAME = 'suniye-neta-jee'
-    AWS_S3_REGION_NAME = 'ap-south-1'
-    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
-    AWS_S3_OBJECT_PARAMETERS = {
-        'CacheControl': 'max-age=86400',
-    }
-    # AWS_LOCATION = 'static'
 
-    # STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-    # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    # MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
-
-    # Static files settings
-    AWS_STATIC_LOCATION = 'static'
-    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_STATIC_LOCATION}/'
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-    # Media files settings
-    AWS_MEDIA_LOCATION = 'media'
-    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_MEDIA_LOCATION}/'
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-else:
-    STATIC_URL = '/static/'
-    STATIC_ROOT = location('public/static/')
-    STATICFILES_DIRS = (
-        location('static'),
-    )
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'public/media')
-    MEDIA_URL = '/media/'
+STATIC_URL = '/static/'
+STATIC_ROOT = location('public/static/')
+STATICFILES_DIRS = (
+    location('static'),
+)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'public/media')
+MEDIA_URL = '/media/'
 
 
 LANGUAGES = [
